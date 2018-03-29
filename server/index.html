@@ -1,0 +1,29 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script src="http://localhost:8888/socket.io/socket.io.js"></script>
+<script>
+
+    //创建socket
+    var socket = io('http://localhost:8888');
+
+    /* 
+    创建自定义事件 'news'
+    作用：接受服务端 socket.emit('news', 数据); 发出的数据
+    */
+    socket.on('message', function (data) {
+
+    //输出服务端响应了数据
+    console.log(data);
+
+    //向服务端的自定义事件 'my other event' 发出数据
+    // socket.emit('message', { my: 'data' });
+    });
+</script>
+</body>
+</html>

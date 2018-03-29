@@ -1,0 +1,14 @@
+body,
+html,
+ul,
+li {
+	margin: 0;
+	padding: 0;
+}
+.flex {
+	display: flex;
+}
+
+#app {
+	min-height: 600px;
+}
