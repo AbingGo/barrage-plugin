@@ -19,17 +19,19 @@ server.listen(8888, () => {
 });
 
 let io = require('socket.io')(server); 
+let count = 0;
 
 // socket请求处理
 io.on('connection',  (socket) => {
 
+    socket.nickname = `用户${count ++}`;
     socket.emit('news', {
-        msg: '连接成功'
+        msg: `${socket.nickname}连接成功`
     });
 
     // 创建自定义事件 message
     socket.on('add-message', function (data) {
-        console.log(data);
+        console.log(socket.nickname);
         io.sockets.emit('message', data);
     });
 });
